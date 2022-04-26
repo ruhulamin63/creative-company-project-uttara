@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,13 @@ use App\Http\Controllers\IndexController;
     Route::get('client', [IndexController::class, 'client'])->name('index.client'); 
     Route::get('company-profile', [IndexController::class, 'company_profile'])->name('index.company'); 
     Route::get('contact-us', [IndexController::class, 'contact'])->name('index.contact'); 
+
+    //===========================admin panel route========================
+    
+    Route::get('admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('invoice', [AdminController::class, 'admin_invoice'])->name('admin.invoice');
+    Route::get('data-show', [AdminController::class, 'admin_show_table'])->name('admin.data.show');
+
     
 
 // Route::group(['middleware'=>['sessionVerify']] , function(){
