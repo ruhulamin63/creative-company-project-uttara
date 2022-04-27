@@ -59,6 +59,9 @@ use App\Http\Controllers\CompanyProfileController;
     Route::get('invoice', [AdminController::class, 'admin_invoice'])->name('admin.invoice');
     Route::get('data-show', [AdminController::class, 'admin_show_table'])->name('admin.data.show');
 
+    Route::get('service-index', [AdminController::class, 'service_index'])->name('admin.service.index');
+    Route::get('service-list', [AdminController::class, 'service_all_data_show'])->name('admin.service.list');
+
 
     Route::get('company-info', [CompanyProfileController::class, 'show_data'])->name('company.info.data');
 
