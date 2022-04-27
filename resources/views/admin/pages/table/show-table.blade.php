@@ -38,77 +38,61 @@
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                        <tr style="background-color: #E74C3C; color:white !important">
+                                            <!-- <th><input type="checkbox" name="main_checkbox"><label></label></th> -->
+                                            <!-- <th style="text-align: center;" class="min-w-100px">#</th> -->
+                                            <th style="text-align: center;" class="min-w-100px">Name</th>
+                                            <th style="text-align: center;" class="min-w-100px">Mobile</th>
+                                            <th style="text-align: center;" class="min-w-100px">Amount</th>
+                                            <th style="text-align: center;" class="min-w-100px">Service Type</th>
+                                            <th style="text-align: center;" class="min-w-100px">Bike Model</th>
+                                            {{-- <th style="text-align: center;" class="min-w-100px">Date</th>
+                                            <th style="text-align: center;" class="min-w-100px">Time</th>
+                                            <th style="text-align: center;" class="min-w-100px">User Type</th>
+                                            <th style="text-align: center;" class="min-w-100px">Membership</th>
+                                            <th style="text-align: center;" class="min-w-100px">Status</th>
+                                            <th style="text-align: center;" class="min-w-100px">Percentage</th>
+                                            <th style="text-align: center;" class="min-w-100px">Actions</th> --}}
+                                            <!-- <th style="text-align: center;" class="min-w-100px">Test</th> -->
+                                            <!-- <button class="btn btn-sm btn-danger d-none" id="deleteAllBtn">Delete All</button> -->
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         <tr>
-                                            <td>Tasman</td>
-                                            <td>Internet Explorer 5.1</td>
-                                            <td>Mac OS 7.6-9</td>
-                                            <td class="badge bg-danger">1</td>
-                                            <td>C</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Tasman</td>
-                                            <td>Internet Explorer 5.2</td>
-                                            <td>Mac OS 8-X</td>
-                                            <td>1</td>
-                                            <td>C</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Misc</td>
-                                            <td>NetFront 3.1</td>
-                                            <td>Embedded devices</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Misc</td>
-                                            <td>NetFront 3.4</td>
-                                            <td>Embedded devices</td>
-                                            <td>-</td>
+                                            <td>Gecko</td>
+                                            <td>Firefox 1.5</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td>1.8</td>
                                             <td>A</td>
                                           </tr>
                                           <tr>
-                                            <td>Misc</td>
-                                            <td>Links</td>
-                                            <td>Text only</td>
-                                            <td>-</td>
-                                            <td>X</td>
+                                            <td>Gecko</td>
+                                            <td>Firefox 2.0</td>
+                                            <td>Win 98+ / OSX.2+</td>
+                                            <td>1.8</td>
+                                            <td>A</td>
                                           </tr>
                                           <tr>
-                                            <td>Misc</td>
-                                            <td>Lynx</td>
-                                            <td>Text only</td>
-                                            <td>-</td>
-                                            <td>X</td>
+                                            <td>Gecko</td>
+                                            <td>Firefox 3.0</td>
+                                            <td>Win 2k+ / OSX.3+</td>
+                                            <td>1.9</td>
+                                            <td>A</td>
                                           </tr>
                                           <tr>
-                                            <td>Misc</td>
-                                            <td>IE Mobile</td>
-                                            <td>Windows Mobile 6</td>
-                                            <td>-</td>
-                                            <td>C</td>
+                                            <td>Gecko</td>
+                                            <td>Camino 1.0</td>
+                                            <td>OSX.2+</td>
+                                            <td>1.8</td>
+                                            <td>A</td>
                                           </tr>
                                           <tr>
-                                            <td>Misc</td>
-                                            <td>PSP browser</td>
-                                            <td>PSP</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Other browsers</td>
-                                            <td>All others</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>U</td>
+                                            <td>Gecko</td>
+                                            <td>Camino 1.5</td>
+                                            <td>OSX.3+</td>
+                                            <td>1.8</td>
+                                            <td>A</td>
                                           </tr>
                                     </tbody>
                                     {{-- <tfoot>

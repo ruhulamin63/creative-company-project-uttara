@@ -46,7 +46,7 @@
         <!-- AdminLTE App -->
         <script src="{{asset('dist/js/adminlte.js')}}"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src="{{asset('dist/js/demo.js')}}"></script>
+        {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
@@ -69,10 +69,11 @@
         <script>
             $(function () {
                 $("#example1").DataTable({
+                    "pageLength":5,
+                    // "lengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]],
                     "responsive": true, "lengthChange": false, "autoWidth": false,
                     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                    // "pageLength":5,
-                    // "lengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]],
+                   
                 }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
                 $('#example2').DataTable({
                     "paging": true,
