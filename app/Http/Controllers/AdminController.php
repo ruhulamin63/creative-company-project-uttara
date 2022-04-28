@@ -32,31 +32,28 @@ class AdminController extends Controller
         try {
             return DataTables::of($services)
                 ->addIndexColumn()
+
+                // ->addColumn('service_image', function($service){
+                //     return  '<div class="btn-group d-flex flex-column w-50 me-2">
+                //                 <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
+                //             </div>'; 
+                // })
                 
                 ->addColumn('activeStatus', function($service){
-                    if($service->status == 0){
+                    if($service->activeStatus == 0){
                         $denied = "Denied";
-                        return  '<div class="btn-group d-flex flex-column w-100 me-2">
+                        return  '<div class="btn-group d-flex flex-column w-50 me-2">
                                     <span class="badge badge-danger" style="text-align: center;">
                                         <span>'.$denied.'</span>
                                     </span>
                                 </div>'; 
-                    }
-                    else if($service->status == 1){
+                    }else{
                         $success = "Success";
-                        return '<div class="btn-group d-flex flex-column w-100 me-2">
+                        return '<div class="btn-group d-flex flex-column w-50 me-2">
                                     <span class="badge badge-success" style="text-align: center;">
                                         <span>'.$success.'</span>
                                     </span>
                                 </div>'; 
-                    }
-                    else{
-                        $cancel = "Cancel";
-                        return '<div class="btn-group d-flex flex-column w-100 me-2">
-                                    <span class="badge badge-danger" style="text-align: center;">
-                                        <span >'.$cancel.'</span>
-                                    </span>
-                                </div>';
                     }
                 })
 
@@ -68,8 +65,6 @@ class AdminController extends Controller
                                 Edit
                             </button>
 
-                            &nbsp;&nbsp;
-
                             <button data-id="'.$action['id'].'" id="deleteBoilerBtn" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash">
                                 </i>
@@ -77,7 +72,7 @@ class AdminController extends Controller
                             </button>
                         </div>';
                 })
-                ->rawColumns(['status','actions'])
+                ->rawColumns(['service_image', 'activeStatus','actions'])
                 ->make(true);
 
         }catch (\Exception $e) {

@@ -18,6 +18,7 @@ class CreateContactsTable extends Migration
 
             $table->string('name', 255)->nullable();
             $table->string('email', 255)->nullable();
+            $table->string('subject', 255)->nullable();
             $table->text('messege',500)->nullable();
             
             $table->timestamp('created_at')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));

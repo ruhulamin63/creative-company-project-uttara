@@ -15,8 +15,8 @@ class serviceSeeder extends Seeder
     public function run()
     {
         DB::table('services')->insert([
-            'service_name' => 'test',
-            'service_desc' => 'test',
+            'service_name' => 'Lorem Ipsum',
+            'service_desc' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi',
             'service_image' => null,
             'activeStatus' => 1,
             'created_at' => now(),

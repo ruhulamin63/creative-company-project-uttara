@@ -36,62 +36,27 @@
         <section id="Ipo_service" class="recent-blog-posts">
             <div class="container" data-aos="fade-up">
                 <div class="row">
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_Result.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO Result</h3>
-                            <button class="btn mt-5">Request For Demo</button>
+                    
+                    @foreach ($products as $item)
+                        <div class="col-lg-3 mt-4">
+                            <div class="post-box">
+                                <div class="post-img">
+                                    @if($item->product_image)
+                                        <?php if (file_exists("../public/".$item->product_image)){ ?>
+                                            <img src="{{asset($item->product_image)}}" class="img-fluid" alt="">
+                                        <?php } else{ ?>
+                                            <img src="{{asset('/media/avatars/blank.png')}}" class="img-fluid" alt="">
+                                        <?php } ?>
+                                    @else
+                                        <img src="{{asset('/media/avatars/blank.png')}}" class="img-fluid" alt="">
+                                    @endif
+                                </div>
+                                <h3 class="post-title">{{$item->product_name}}</h3>
+                                <button class="btn mt-5">Request For Demo</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/Upcoming_Ipo.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">Upcoming IPO</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/Ongoing_IPO.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">Ongoing IPO</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_Information.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO Information</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_application-1.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO applicants</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_application-1.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO applicants</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_application-1.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO applicants</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4">
-                        <div class="post-box">
-                            <div class="post-img"><img src="{{asset('assets/img/blog/IPO_application-1.png')}}" class="img-fluid" alt=""></div>
-                            <h3 class="post-title">IPO applicants</h3>
-                            <button class="btn mt-5">Request For Demo</button>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </section>

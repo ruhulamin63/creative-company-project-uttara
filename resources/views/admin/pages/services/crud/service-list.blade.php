@@ -49,7 +49,7 @@
                                                 <th style="text-align: center;" class="min-w-100px">Service Name</th>
                                                 <th style="text-align: center;" class="min-w-100px">Service Description</th>
                                                 <th style="text-align: center;" class="min-w-100px">service Logo</th>
-                                                <th style="text-align: center;" class="min-w-100px">Status</th>
+                                                <th style="text-align: center;" class="min-w-100px">Active Status</th>
                                                 <th style="text-align: center;" class="min-w-100px">Actions</th>
                                             </tr>
                                         </thead>

@@ -17,12 +17,13 @@ class CreateCareersTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('position_name', 255)->nullable();
+            $table->string('company_name', 255)->nullable();
             $table->integer('vacancy')->nullable();
             $table->string('job_type',150)->nullable();
-            $table->date('apply_date')->nullable();
+            $table->string('apply_date')->nullable();
             $table->string('job_context', 10000)->nullable();
             $table->string('job_nature', 255)->nullable();
-            $table->string('edu_requiment', 255)->nullable();
+            $table->string('edu_requirment', 255)->nullable();
             $table->string('job_location', 255)->nullable();
             $table->string('salary_range', 255)->nullable();
             $table->string('other_benefit', 255)->nullable();

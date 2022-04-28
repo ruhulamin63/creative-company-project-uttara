@@ -48,10 +48,15 @@ use App\Http\Controllers\CompanyProfileController;
     Route::get('service', [IndexController::class, 'service'])->name('index.service');
     Route::get('team', [IndexController::class, 'team'])->name('index.team');
     Route::get('about-us', [IndexController::class, 'about_us'])->name('index.about');
+
     Route::get('career', [IndexController::class, 'career'])->name('index.career');
+    Route::get('job-context', [IndexController::class, 'job_context_list'])->name('index.job.context');
+
     Route::get('client', [IndexController::class, 'client'])->name('index.client'); 
     Route::get('company-profile', [IndexController::class, 'company_profile'])->name('index.company'); 
-    Route::get('contact-us', [IndexController::class, 'contact'])->name('index.contact'); 
+
+    Route::get('/contact-us', [IndexController::class, 'contact'])->name('index.contact'); 
+    Route::post('/contact-us', [IndexController::class, 'post_contact'])->name('post.index.contact'); 
 
     //===========================admin panel route========================
     
