@@ -37,107 +37,37 @@
           <div class="container">
     
             <div class="row">
-    
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
+              
+              @foreach ($teams as $item)
+                <div class="col-lg-4 mt-4">
+                  <div class="member d-flex align-items-start">
+                    <div class="pic">
+                        @if($item->image)
+                          <?php if (file_exists("../public/".$item->image)){ ?>
+                            <img src="{{asset($item->image)}}" class="img-fluid" alt="">
+                          <?php } else{ ?>
+                            <img src="{{asset('/media/avatars/blank.png')}}" class="img-fluid" alt="">
+                          <?php } ?>
+                        @else
+                          <img src="{{asset('/media/avatars/blank.png')}}" class="img-fluid" alt="">
+                        @endif
+													
                     </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
+                    <div class="member-info">
+                      <h4>{{$item->name}}</h4>
+                      <span>{{$item->position}}</span>
+                      <div class="social">
+                        <a href="{{$item->linkin_id}}"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{$item->github_id}}"><i class="fab fa-github-alt"></i></a>
+                        <a href="{{$item->facebook_id}}"><i class="fab fa-facebook"></i></a>
+                        <a href="{{$item->twitter_id}}"><i class="fab fa-twitter"></i></a>
+                      </div>
+                      <p>{{$item->desc}}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-    
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 mt-4">
-                <div class="member d-flex align-items-start">
-                  <div class="pic"><img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
-                  <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div class="social">
-                      <a href=""><i class="fab fa-linkedin"></i></a>
-                      <a href=""><i class="fab fa-github-alt"></i></a>
-                      <a href=""><i class="fab fa-facebook"></i></a>
-                      <a href=""><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <p>Explicabo voluptatem mollitia et repellat</p>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+             
             </div>
           </div>
         </section>

@@ -21,36 +21,47 @@
 								<tbody>
 									<tr>
 										<td>Company Name</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Reg. No.</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Trade Lisence No.</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Logo (up)</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Tagline</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Web Site</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Facebook Link</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Skype Id</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Bank Account Name</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Bank Name</td>
+										<td>Demo</td>
 									</tr>
 									<tr>
 										<td>Baranch Name</td>
+										<td>Demo</td>
 									</tr>
 								</tbody>
 							</table>

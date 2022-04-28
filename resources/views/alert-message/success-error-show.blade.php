@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center">
             <i class="bx bx-like"></i>
             <span>
-                {{ session()->get('message') }}
+                {{ session()->get('mgs') }}
             </span>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="d-flex align-items-center">
             <i class="bx bx-error"></i>
             <span>
-                {{ session()->get('message') }}
+                {{ session()->get('mgs') }}
             </span>
         </div>
     </div>

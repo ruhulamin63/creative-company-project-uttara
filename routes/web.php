@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,10 +48,28 @@ use App\Http\Controllers\IndexController;
     Route::get('service', [IndexController::class, 'service'])->name('index.service');
     Route::get('team', [IndexController::class, 'team'])->name('index.team');
     Route::get('about-us', [IndexController::class, 'about_us'])->name('index.about');
+
     Route::get('career', [IndexController::class, 'career'])->name('index.career');
+    Route::get('job-context', [IndexController::class, 'job_context_list'])->name('index.job.context');
+
     Route::get('client', [IndexController::class, 'client'])->name('index.client'); 
     Route::get('company-profile', [IndexController::class, 'company_profile'])->name('index.company'); 
-    Route::get('contact-us', [IndexController::class, 'contact'])->name('index.contact'); 
+
+    Route::get('/contact-us', [IndexController::class, 'contact'])->name('index.contact'); 
+    Route::post('/contact-us', [IndexController::class, 'post_contact'])->name('post.index.contact'); 
+
+    //===========================admin panel route========================
+    
+    Route::get('admin-dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('invoice', [AdminController::class, 'admin_invoice'])->name('admin.invoice');
+    Route::get('data-show', [AdminController::class, 'admin_show_table'])->name('admin.data.show');
+
+    Route::get('service-index', [AdminController::class, 'service_index'])->name('admin.service.index');
+    Route::get('service-list', [AdminController::class, 'service_all_data_show'])->name('admin.service.list');
+
+
+    Route::get('company-info', [CompanyProfileController::class, 'show_data'])->name('company.info.data');
+
     
 
 // Route::group(['middleware'=>['sessionVerify']] , function(){
