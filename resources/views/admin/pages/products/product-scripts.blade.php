@@ -25,42 +25,41 @@
 
             //=====================================================Get all services data=============================================
             
-            $('#service-list-table').DataTable({
+            $('#product-list-table').DataTable({
                 processing:false,
                 info:true,
-                ajax:"{{ route('admin.service.list')}}",
+                ajax:"{{ route('admin.product.list')}}",
                 "pageLength":5,
                 "aLengthMenu":[[5,10,25,50,-1],[5,10,25,50,"All"]],
                 columns:[
                     // {data:'id', name:'id'},
                     // {data:'DT_RowIndex', name:'DT_RowIndex'},
-                    {data:'service_name', name:'service_name'},
-                    {data:'service_desc', name:'service_desc'},
-                    {data:'service_image', name:'service_image'},
+                    {data:'product_name', name:'product_name'},
+                    {data:'product_image', name:'product_image'},
                     {data:'activeStatus', name:'activeStatus', orderable:false, searchable:false},
                     {data:'actions', name:'actions', orderable:false, searchable:false},
                 ]
             });
 
             //=========================================================add guest appointment===================================
-            $(document).on('click','#addServiceBtn', function(){
-                var service_id = $(this).data('s_id');
+            $(document).on('click','#addProductBtn', function(){
+                var product_id = $(this).data('p_id');
                 //alert(service_id);
 
-                $.post('<?= route("admin.add.service.post") ?>',{service_id:service_id, _token:'{{csrf_token()}}'}, function(data){
+                $.post('<?= route("admin.add.product.post") ?>',{product_id:product_id, _token:'{{csrf_token()}}'}, function(data){
                     //alert(data.service_id);
                     //console.log(data.details.full_name);
 
-                    $('.addService').find('form')[0].reset();
-                    $('.addService').find('span.error-text').text('');
+                    $('.addProduct').find('form')[0].reset();
+                    $('.addProduct').find('span.error-text').text('');
 
-                    $('.addService').modal('show');
+                    $('.addProduct').modal('show');
                 },'json');
             });
 
             //=====================================================add guest appointment=====================================
 
-            $('#add-service-form').on('submit', function(e){
+            $('#add-product-form').on('submit', function(e){
                 e.preventDefault();
                 //alert('hello test');
 
@@ -85,12 +84,12 @@
                             //alert(data.msg);
                             //console.log(data.msg);
 
-                            $('#service-list-table').DataTable().ajax.reload(null, false);
-                            $('.addService').modal('hide');
-                            $('.addService').find('form')[0].reset();
+                            $('#product-list-table').DataTable().ajax.reload(null, false);
+                            $('.addProduct').modal('hide');
+                            $('.addProduct').find('form')[0].reset();
 
                             if(data.code == 1){
-                                $('#service-list-table').DataTable().ajax.reload(null, false);
+                                $('#product-list-table').DataTable().ajax.reload(null, false);
                                 toastr.success(data.msg);
                             }else{
                                 toastr.error(data.msg);
@@ -101,23 +100,22 @@
             });
 
             //===========================================================edit service details==================================================
-            $(document).on('click','#editServiceBtn', function(){
-              var service_id = $(this).data('id');
-              //alert(service_id);
+            $(document).on('click','#editProductBtn', function(){
+              var product_id = $(this).data('id');
+              //alert(product_id);
 
-              $.post('<?= route('edit.service.details') ?>',{service_id:service_id, _token:'{{csrf_token()}}'}, function(data){
+              $.post('<?= route('edit.product.details') ?>',{product_id:product_id, _token:'{{csrf_token()}}'}, function(data){
 
-                  $('.editService').find('input[name="s_id"]').val(data.details.id);
-                  $('.editService').find('textarea[name="service_desc"]').val(data.details.service_desc);
-                  $('.editService').find('input[name="service_name"]').val(data.details.service_name);
-                  $('.editService').find('input[name="service_image"]').val(data.details.service_image);
+                  $('.editProduct').find('input[name="p_id"]').val(data.details.id);
+                  $('.editProduct').find('input[name="product_name"]').val(data.details.product_name);
+                  $('.editProduct').find('input[name="product_image"]').val(data.details.product_image);
                 
-                  $('.editService').modal('show');
+                  $('.editProduct').modal('show');
               },'json');
             });
 
             // =============================================UPDATE COUNTRY DETAILS==============================================
-            $('#update-service-form').on('submit', function(e){
+            $('#update-product-form').on('submit', function(e){
                 e.preventDefault();
                 var form = this;
                 $.ajax({
@@ -136,9 +134,9 @@
                                 $(form).find('span.'+prefix+'_error').text(val[0]);
                             });
                         }else{
-                            $('#service-list-table').DataTable().ajax.reload(null, false);
-                            $('.editService').modal('hide');
-                            $('.editService').find('form')[0].reset();
+                            $('#product-list-table').DataTable().ajax.reload(null, false);
+                            $('.editProduct').modal('hide');
+                            $('.editProduct').find('form')[0].reset();
                             toastr.success(data.msg);
                         }
                     }
@@ -146,12 +144,12 @@
             });
 
             //=============================DELETE service record===========================
-            $(document).on('click','#deleteServiceBtn', function(){
-                var service_id = $(this).data('s_id');
+            $(document).on('click','#deleteProductBtn', function(){
+                var product_id = $(this).data('p_id');
 
-                // alert(service_id)
+                // alert(product_id)
 
-                var url = '<?= route("delete.service") ?>';
+                var url = '<?= route("delete.product") ?>';
 
                 Swal.fire({
                     title:'Are you sure?',
@@ -166,7 +164,7 @@
                     allowOutsideClick:false
                 }).then(function(result){
                     if(result.value){
-                        $.post(url,{service_id:service_id, _token:'{{csrf_token()}}'}, function(data){
+                        $.post(url,{product_id:product_id, _token:'{{csrf_token()}}'}, function(data){
                             if(data.code == 1){
                                 $('#service-list-table').DataTable().ajax.reload(null, false);
                                 toastr.success(data.msg);

@@ -14,6 +14,7 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <!-- AdminLTE App -->
 
+
 <script>
     $(function () {
       $("#example1").DataTable({
