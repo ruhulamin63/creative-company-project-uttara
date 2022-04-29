@@ -1,6 +1,6 @@
 @extends('layout.content.main-content')
 <?php 
-	$title= "Creative | Index";
+	$title= "Sheba Automation Ltd";
 ?>
 
 @section('content')

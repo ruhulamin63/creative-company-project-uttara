@@ -291,6 +291,14 @@
             </ul>
           </li>
 
+          <a href="{{ route('logout') }}" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              Logout
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+
 
           {{-- <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
