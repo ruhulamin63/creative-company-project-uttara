@@ -28,10 +28,10 @@
         <!-- ChartJS -->
         <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
         <!-- Sparkline -->
-        <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
+        {{-- <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script> --}}
         <!-- JQVMap -->
-        <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-        <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+        {{-- <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+        <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script> --}}
         <!-- jQuery Knob Chart -->
         <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
         <!-- daterangepicker -->
@@ -49,6 +49,17 @@
         {{-- <script src="{{asset('dist/js/demo.js')}}"></script> --}}
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+
+       
+        {{-- <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('datatable/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('datatable/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('sweetalert2/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('toastr/toastr.min.js') }}"></script> --}}
+
+
         
 
         <!-- jQuery -->

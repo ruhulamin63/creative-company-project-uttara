@@ -1,6 +1,6 @@
 @extends('layout.content.admin-content')
 <?php 
-	$title= "service list";
+	$title= "product list";
 ?>
 
 @section('content')
@@ -17,7 +17,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Service</li>
+                    <li class="breadcrumb-item active">Product</li>
                     </ol>
                 </div>
                 </div>
@@ -33,26 +33,25 @@
             
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Service Information
-                                    <button id="addServiceBtn" class="btn btn-block btn-primary"><i class="fas fa-plus" style="margin-right:10px"></i>Add Service</button>
+                                <h3 class="card-title">Product Information
+                                    <button id="addProductBtn" class="btn btn-block btn-primary"><i class="fas fa-plus" style="margin-right:10px"></i>Add Product</button>
                                 </h3>
                                 
                             </div>
                             <!-- /.card-header -->
 
-                            @include('admin.pages.services.crud.add-service')
-                            @include('admin.pages.services.crud.edit-service')
+                            @include('admin.pages.products.crud.add-product')
+                            @include('admin.pages.products.crud.edit-product')
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="service-list-table" class="table table-bordered table-striped">
+                                    <table id="product-list-table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr style="background-color: #E74C3C; color:white !important">
                                                 <!-- <th><input type="checkbox" name="main_checkbox"><label></label></th> -->
                                                 <!-- <th style="text-align: center;" class="min-w-100px">#</th> -->
-                                                <th style="text-align: center;" class="min-w-100px">Service</th>
-                                                <th style="text-align: center;" class="min-w-100px">Description</th>
-                                                <th style="text-align: center;" class="min-w-100px">Logo</th>
+                                                <th style="text-align: center;" class="min-w-100px">Product Name</th>
+                                                <th style="text-align: center;" class="min-w-100px">Image</th>
                                                 <th style="text-align: center;" class="min-w-100px">Status</th>
                                                 <th style="text-align: center;" class="min-w-100px">Actions</th>
                                             </tr>
@@ -77,5 +76,5 @@
     </div>
     <!-- /.content-wrapper -->
 
-    @include('admin.pages.services.service-scripts')
+    @include('admin.pages.products.product-scripts')
 @endsection

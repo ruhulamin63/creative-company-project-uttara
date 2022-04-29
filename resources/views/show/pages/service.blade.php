@@ -36,30 +36,29 @@
         <section id="services" class="services">
         <div class="container">
             <div class="row">
+
+                @foreach ($services as $item)
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-
-                    @foreach ($services as $item)
-
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="bx bx-file"></i>
-                                
-                                {{-- @if($item->service_image)
-                                    <?php if (file_exists("../public/".$item->service_image)){ ?>
-                                        <img src="{{asset($item->service_image)}}" >
-                                    <?php } else{ ?>
-                                        <img src="{{asset('/media/avatars/blank.png')}}">
-                                    <?php } ?>
-                                @else
-                                    <img src="{{asset('/media/avatars/blank.png')}}" >
-                                @endif --}}
-                            </div>
-                                <h4 class="title"><a href="">{{$item->service_name}}</a></h4>
-                                <p class="description">{{$item->service_desc}}</p>
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="bx bx-file"></i>
+                            
+                            {{-- @if($item->service_image)
+                                <?php if (file_exists("../public/".$item->service_image)){ ?>
+                                    <img src="{{asset($item->service_image)}}" >
+                                <?php } else{ ?>
+                                    <img src="{{asset('/media/avatars/blank.png')}}">
+                                <?php } ?>
+                            @else
+                                <img src="{{asset('/media/avatars/blank.png')}}" >
+                            @endif --}}
                         </div>
-                    @endforeach
-                
+                        <h4 class="title"><a href="">{{$item->service_name}}</a></h4>
+                        <p class="description">{{$item->service_desc}}</p>
+                    </div>
                 </div>
+                @endforeach
+                
             </div>
         </div>
         </section><!-- End Services Section -->
