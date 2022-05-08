@@ -18,6 +18,7 @@ class CareerSeeder extends Seeder
             'position_name' => 'Executive, Marketing',
             'company_name' => 'Synesis IT Ltd.',
             'vacancy' => 01,
+            'job_type' => 'Full Time',
             'apply_date' => '06-Sep-2021',
             'job_context' => 'Synesis IT now invites applications from candidates who are talented and maintaining high ethical standard for the post of Executive, Marketing. The candidates who possess self driven, innovative attitude with problem solving skills will discover their right environment and find fast track career growth in Synesis IT.Job Description / Responsibility',
             'job_nature' => 'Full-time',

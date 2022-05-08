@@ -35,9 +35,9 @@ class ServiceController extends Controller
                                     <span>'.$denied.'</span>
                                 </span>'; 
                     }else{
-                        $success = "Success";
+                        $active = "Active";
                         return '<span class="badge badge-success" style="text-align: center;">
-                                    <span>'.$success.'</span>
+                                    <span>'.$active.'</span>
                                 </span>'; 
                     }
                 })
@@ -96,13 +96,13 @@ class ServiceController extends Controller
 
             if($request->hasFile('service_image')) {
                 $image = $request->file('service_image');
-                $image_name=$image->getClientOriginalName();
+                //$image_name=$image->getClientOriginalName();
                 $image_ext=$image->getClientOriginalExtension();
     
-                //$image_new_name =$request->contact_number.date("YmdHis");
-                //dd($image_ext);
+                $image_new_name =date("YmdHis");
+                //dd($image_new_name);
     
-                $image_full_name= $image_name.'.'.$image_ext;
+                $image_full_name= $image_new_name.'.'.$image_ext;
                 Image::make($image)->resize(300, 300)->save('media/services/'. $image_full_name);
                 $imageData='/media/services/'.$image_full_name;
     
@@ -163,17 +163,17 @@ class ServiceController extends Controller
            
             if($request->hasFile('service_image')) {
                 $image = $request->file('service_image');
-                $image_name=$image->getClientOriginalName();
+                //$image_name=$image->getClientOriginalName();
                 $image_ext=$image->getClientOriginalExtension();
     
-                //$image_new_name =$request->contact_number.date("YmdHis");
+                $image_new_name =date("YmdHis");
                 //dd($image_ext);
     
-                $image_full_name=$image_name.'.'.$image_ext;
+                $image_full_name=$image_new_name.'.'.$image_ext;
                 Image::make($image)->resize(300, 300)->save('media/services/'. $image_full_name);
                 $imageData='/media/services/'.$image_full_name;
     
-                $services->image=$imageData;
+                $services->service_image=$imageData;
             }else {
                 $thumbnail = null;
             }
@@ -193,7 +193,8 @@ class ServiceController extends Controller
 
     // DELETE Order RECORD
     public function delete_service(Request $request){
-        $service_id = $request->s_id;
+        $service_id = $request->service_id;
+        //dd($service_id);
         $query = Service::find($service_id)->delete();
 
         if($query){

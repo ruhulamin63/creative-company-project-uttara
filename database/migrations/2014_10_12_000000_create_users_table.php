@@ -16,10 +16,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name',191)->nullable();
             $table->string('username',191)->nullable();
             $table->string('contact_number', 191)->nullable();
             $table->string('password', 191)->nullable();
+            $table->string('email', 191)->nullable();
+
+            $table->text('image',150)->nullable();
 
             $table->integer('user_type')->nullable()->comment = '1.admin 2.customer';
             $table->integer('activeStatus')->nullable();

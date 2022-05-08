@@ -7,21 +7,38 @@ use Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-use App\Models\User;
-use App\Models\Service;
-use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Home;
+use App\Models\About;
+use App\Models\Portfolio;
 use App\Models\Team;
+use App\Models\Product;
+use App\Models\Service;
 use App\Models\Career;
+use App\Models\Client;
+use App\Models\Companyprofile;
+use App\Models\Contact;
+use App\Models\User;
+
 use DB;
 
 class IndexController extends Controller
 {
     public function index(){
-        return view('show.index');
+        $home = Home::all();
+        $client = Client::all();
+        $partner = Partner::all();
+
+        return view('show.index', compact('home', 'client', 'partner'));
     }
 
     public function portfolio(){
-        return view('show.pages.portfolio');
+        $web_app = Portfolio::get('web_app_image');
+        //dd($web_app);
+        $mobile_app = Portfolio::get('mobile_app_image');
+        $graphic_design = Portfolio::get('graphic_design_image');
+
+        return view('show.pages.portfolio', compact('web_app', 'mobile_app', 'graphic_design'));
     }
 
     public function product(){
@@ -44,7 +61,9 @@ class IndexController extends Controller
     }
 
     public function about_us(){
-        return view('show.pages.about-us');
+        $about = About::all();
+
+        return view('show.pages.about-us', compact('about'));
     }
 
     public function career(){
@@ -60,92 +79,21 @@ class IndexController extends Controller
     }
 
     public function client(){
-        return view('show.pages.client');
+
+        $clients = Client::all();
+
+        return view('show.pages.client', compact('clients'));
     }
-    // public function post_client(Request $request){
-    //     //dd('test');
-    //     $validator = \Validator::make($request->all(), [
-    //         'name' => 'required',
-    //         'position' => 'required',
-    //         'image' => 'required',
-    //         'linkin_id' => 'required',
-    //         'facebook_id' => 'required',
-    //         'twitter_id' => 'required',
-    //         'github_id' => 'required',
-    //     ]);
-
-    //     // if(!$validator->passes()){
-    //     //     return response()->json(['code'=>0 , 'error'=>$validator->errors()->toArray()]);
-    //     // }else{
-
-    //         $data=array();
-    //         $data['name']=$request->name;
-    //         $data['position']=$request->position;
-    //         $data['image']= $request->image;
-    //         $data['linkin_id']= $request->linkin_id;
-    //         $data['facebook_id']= $request->facebook_id;
-    //         $data['twitter_id']= $request->twitter_id;
-    //         $data['github_id']= $request->github_id;
-    //         $data['activeStatus']= 1;
-
-    //         $query = DB::table('teams')->insert($data);
-
-
-    //         if($query){
-    //             return redirect()->back()->with([
-    //                 'error' => false,
-    //                 'mgs' => 'Submit Successfully'
-    //             ],200);
-    //         }else{
-    //             return redirect()->back()->with([
-    //                 'error' => true,
-    //                 'mgs' => 'Something going wrong'
-    //             ],412);
-    //         }
-    //     //}
-    // }
-
+    
 
     public function company_profile(){
-        return view('show.pages.company_profile');
+
+        $company = Companyprofile::all();
+
+        return view('show.pages.company_profile', compact('company'));
     }
 
     public function contact(){
         return view('show.pages.contact-us');
-    }
-    public function post_contact(Request $request){
-        //dd('test');
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-        ]);
-
-        // if(!$validator->passes()){
-        //     return response()->json(['code'=>0 , 'error'=>$validator->errors()->toArray()]);
-        // }else{
-
-            $data=array();
-            $data['name']=$request->name;
-            $data['email']=$request->email;
-            $data['subject']= $request->subject;
-            $data['messege']= $request->message;
-
-            $query = DB::table('contacts')->insert($data);
-
-
-            if($query){
-                return redirect()->back()->with([
-                    'error' => false,
-                    'mgs' => 'Submit Successfully'
-                ],200);
-            }else{
-                return redirect()->back()->with([
-                    'error' => true,
-                    'mgs' => 'Something going wrong'
-                ],412);
-            }
-        //}
     }
 }

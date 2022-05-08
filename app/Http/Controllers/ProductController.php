@@ -21,30 +21,24 @@ class ProductController extends Controller
         try {
             return DataTables::of($products)
                 ->addIndexColumn()
-
-                // ->addColumn('product_image', function($service){
-                //     return  '<div class="btn-group d-flex flex-column w-50 me-2">
-                //                 <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                //             </div>'; 
-                // })
                 
                 ->addColumn('activeStatus', function($products){
                     if($products->activeStatus == 0){
                         $denied = "Denied";
-                        return  '<span class="badge badge-danger" style="text-align: center;">
+                        return  '<span class="badge badge-danger">
                                     <span>'.$denied.'</span>
                                 </span>'; 
                     }else{
-                        $success = "Success";
+                        $active = "Active";
                         return '<span class="badge badge-success" style="text-align: center;">
-                                    <span>'.$success.'</span>
+                                    <span>'.$active.'</span>
                                 </span>'; 
                     }
                 })
 
 
                 ->addColumn('actions', function($action){
-                    return '<button data-id="'.$action['id'].'" id="editProductBtn" class="btn btn-info btn-sm">
+                    return '<button data-id="'.$action['id'].'" id="editProductBtn" style="display: inline-block;" class="btn btn-info btn-sm">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
@@ -57,7 +51,7 @@ class ProductController extends Controller
                             </button>
                         </div>';
                 })
-                ->rawColumns(['product_image', 'activeStatus','actions'])
+                ->rawColumns(['product_image', 'activeStatus', 'actions'])
                 ->make(true);
 
         }catch (\Exception $e) {
@@ -75,7 +69,7 @@ class ProductController extends Controller
         if(!$validator->passes()){
             return response()->json(['code'=>0 , 'error'=>$validator->errors()->toArray()]);
         }else{
-
+            //dd('test');
             $data = array();
             
             $data['product_name'] = $request->product_name;
@@ -83,13 +77,13 @@ class ProductController extends Controller
 
             if($request->hasFile('product_image')) {
                 $image = $request->file('product_image');
-                $image_name=$image->getClientOriginalName();
+                //$image_name=$image->getClientOriginalName();
                 $image_ext=$image->getClientOriginalExtension();
     
-                //$image_new_name =$request->contact_number.date("YmdHis");
+                $image_new_name =date("YmdHis");
                 //dd($image_ext);
     
-                $image_full_name= $image_name.'.'.$image_ext;
+                $image_full_name= $image_new_name.'.'.$image_ext;
                 Image::make($image)->resize(300, 300)->save('media/products/'. $image_full_name);
                 $imageData='/media/products/'.$image_full_name;
     
@@ -119,6 +113,8 @@ class ProductController extends Controller
     public function edit_product_details(Request $request){
         $product_id = $request->product_id;
 
+        //dd($product_id);
+
         $productDetails = Product::find($product_id);
 
         //dd($productDetails);
@@ -147,17 +143,17 @@ class ProductController extends Controller
            
             if($request->hasFile('product_image')) {
                 $image = $request->file('product_image');
-                $image_name=$image->getClientOriginalName();
+                //$image_name=$image->getClientOriginalName();
                 $image_ext=$image->getClientOriginalExtension();
     
-                //$image_new_name =$request->contact_number.date("YmdHis");
+                $image_new_name =date("YmdHis");
                 //dd($image_ext);
     
-                $image_full_name=$image_name.'.'.$image_ext;
+                $image_full_name=$image_new_name.'.'.$image_ext;
                 Image::make($image)->resize(300, 300)->save('media/products/'. $image_full_name);
                 $imageData='/media/products/'.$image_full_name;
     
-                $products->image=$imageData;
+                $products->product_image=$imageData;
             }else {
                 $thumbnail = null;
             }
@@ -177,7 +173,8 @@ class ProductController extends Controller
 
     // DELETE Order RECORD
     public function delete_product(Request $request){
-        $product_id = $request->p_id;
+        $product_id = $request->product_id;
+        //dd($product_id);
         $query = Product::find($product_id)->delete();
 
         if($query){

@@ -36,7 +36,7 @@
                     // {data:'DT_RowIndex', name:'DT_RowIndex'},
                     {data:'service_name', name:'service_name'},
                     {data:'service_desc', name:'service_desc'},
-                    {data:'service_image', name:'service_image'},
+                    // {data:'service_image', name:'service_image'},
                     {data:'activeStatus', name:'activeStatus', orderable:false, searchable:false},
                     {data:'actions', name:'actions', orderable:false, searchable:false},
                 ]
@@ -85,7 +85,6 @@
                             //alert(data.msg);
                             //console.log(data.msg);
 
-                            $('#service-list-table').DataTable().ajax.reload(null, false);
                             $('.addService').modal('hide');
                             $('.addService').find('form')[0].reset();
 
@@ -110,7 +109,7 @@
                   $('.editService').find('input[name="s_id"]').val(data.details.id);
                   $('.editService').find('textarea[name="service_desc"]').val(data.details.service_desc);
                   $('.editService').find('input[name="service_name"]').val(data.details.service_name);
-                  $('.editService').find('input[name="service_image"]').val(data.details.service_image);
+                //   $('.editService').find('input[name="service_image"]').val(data.details.service_image);
                 
                   $('.editService').modal('show');
               },'json');
@@ -147,9 +146,9 @@
 
             //=============================DELETE service record===========================
             $(document).on('click','#deleteServiceBtn', function(){
-                var service_id = $(this).data('s_id');
+                var service_id = $(this).data('id');
 
-                // alert(service_id)
+                //alert(service_id)
 
                 var url = '<?= route("delete.service") ?>';
 

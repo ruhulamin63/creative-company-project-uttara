@@ -1,4 +1,4 @@
-@extends('layout.content.main-content')
+@extends('layout.content.customer-content')
 <?php 
 	$title= "Client";
 ?>
@@ -35,73 +35,25 @@
 		<!-- ======= Gallery Section ======= -->
 		<section id="gallery" class="gallery">
 			<div class="container">
-			<div class="row no-gutters">
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item mobile-responsive1">
-					<a href="{{asset('assets/img/gallery/gallery-1.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-1.jpg')}}" alt="" class="img-fluid">
-					</a>
+				<div class="row no-gutters">
+					@foreach ($clients as $item)
+						<div class="col-lg-3 col-sm-6">
+							<div class="gallery-item mobile-responsive1">
+								<a href="{{asset($item->client_image)}}" class="galleery-lightbox" data-gallery="gallery-item">
+									@if($item->client_image)
+										<?php if (file_exists("../public/".$item->client_image)){ ?>
+										<img src="{{asset($item->client_image)}}" alt="..." class="img-fluid">
+										<?php } else{ ?>
+										<img src="{{asset('/media/avatars/blank.png')}}">
+										<?php } ?>
+									@else
+										<img src="{{asset('/media/avatars/blank.png')}}" >
+									@endif 
+								</a>
+							</div>
+						</div>
+					@endforeach
 				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item responsive2">
-					<a href="{{asset('assets/img/gallery/gallery-2.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-2.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-3.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-3.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-4.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-4.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-5.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-5.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-6.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-6.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-7.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-7.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6">
-				<div class="gallery-item">
-					<a href="{{asset('assets/img/gallery/gallery-8.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-					<img src="{{asset('assets/img/gallery/gallery-8.jpg')}}" alt="" class="img-fluid">
-					</a>
-				</div>
-				</div>
-
-			</div>
-
 			</div>
 		</section>
 		<!-- End Gallery Section -->

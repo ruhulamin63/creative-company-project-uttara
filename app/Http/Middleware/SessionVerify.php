@@ -21,7 +21,7 @@ class SessionVerify
             return $next($request);
         }
         else{
-            $request->session()->flash('message', 'Invalid Request!');
+            $request->session()->flash('msg', 'Invalid Request!');
 
                 return redirect()->route('login')
                 ->with([

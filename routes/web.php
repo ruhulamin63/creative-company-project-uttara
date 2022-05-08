@@ -9,6 +9,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +83,7 @@ Route::group(['middleware'=>['sessionVerify']] , function(){
         Route::get('invoice', [AdminController::class, 'admin_invoice'])->name('admin.invoice');
         Route::get('data-show', [AdminController::class, 'admin_show_table'])->name('admin.data.show');
 
+        //==================================Service route=======================================
         Route::get('service-index', [ServiceController::class, 'service_index'])->name('admin.service.index');
         Route::get('service-list', [ServiceController::class, 'service_all_data_show'])->name('admin.service.list');
         Route::post('add-service', [ServiceController::class, 'add_service_post'])->name('admin.add.service.post');
@@ -83,6 +91,7 @@ Route::group(['middleware'=>['sessionVerify']] , function(){
         Route::post('update-service',[ServiceController::class, 'update_service_details'])->name('update.service.details');
         Route::post('delete-service',[ServiceController::class, 'delete_service'])->name('delete.service');
 
+        //====================================Product route===============================
         Route::get('product-index', [ProductController::class, 'product_index'])->name('admin.product.index');
         Route::get('product-list', [ProductController::class, 'product_all_data_show'])->name('admin.product.list');
         Route::post('add-product', [ProductController::class, 'add_product_post'])->name('admin.add.product.post');
@@ -90,7 +99,74 @@ Route::group(['middleware'=>['sessionVerify']] , function(){
         Route::post('update-product',[ProductController::class, 'update_product_details'])->name('update.product.details');
         Route::post('delete-product',[ProductController::class, 'delete_product'])->name('delete.product');
         
+        //==============================job context route=============================
+        Route::get('career-index', [CareerController::class, 'career_index'])->name('admin.career.index');
+        Route::get('career-list', [CareerController::class, 'career_all_data_show'])->name('admin.career.list');
+        Route::post('add-career', [CareerController::class, 'add_career_post'])->name('admin.add.career.post');
+        Route::post('edit-career',[CareerController::class, 'edit_career_details'])->name('edit.career.details');
+        Route::post('update-career',[CareerController::class, 'update_career_details'])->name('update.career.details');
+        Route::post('delete-career',[CareerController::class, 'delete_career'])->name('delete.career');
+
+        //================================Company Profile Route=============================
+        Route::get('company-index', [CompanyProfileController::class, 'company_index'])->name('admin.company.index');
+        Route::get('company-list', [CompanyProfileController::class, 'company_all_data_show'])->name('admin.company.list');
+        Route::post('add-company', [CompanyProfileController::class, 'add_company_post'])->name('admin.add.company.post');
+        Route::post('edit-company',[CompanyProfileController::class, 'edit_company_details'])->name('edit.company.details');
+        Route::post('update-company',[CompanyProfileController::class, 'update_company_details'])->name('update.company.details');
+        Route::post('delete-comapany',[CompanyProfileController::class, 'delete_company'])->name('delete.company');
+    
+        //================================Client Route=============================
+        Route::get('client-index', [ClientController::class, 'client_index'])->name('admin.client.index');
+        Route::get('client-list', [ClientController::class, 'client_all_data_show'])->name('admin.client.list');
+        Route::post('add-client', [ClientController::class, 'add_client_post'])->name('admin.add.client.post');
+        // Route::post('edit-client',[ClientController::class, 'edit_client_details'])->name('edit.client.details');
+        // Route::post('update-client',[ClientController::class, 'update_client_details'])->name('update.client.details');
+        Route::post('delete-client',[ClientController::class, 'delete_client'])->name('delete.client');
+
+        //================================Partner Route=============================
+        Route::get('partner-index', [PartnerController::class, 'partner_index'])->name('admin.partner.index');
+        Route::get('partner-list', [PartnerController::class, 'partner_all_data_show'])->name('admin.partner.list');
+        Route::post('add-partner', [PartnerController::class, 'add_partner_post'])->name('admin.add.partner.post');
+        // Route::post('edit-client',[PartnerController::class, 'edit_client_details'])->name('edit.client.details');
+        // Route::post('update-client',[PartnerController::class, 'update_client_details'])->name('update.client.details');
+        Route::post('delete-partner',[PartnerController::class, 'delete_partner'])->name('delete.partner');
+
+
+        //================================About Route=============================
+        Route::get('about-index', [AboutController::class, 'about_index'])->name('admin.about.index');
+        Route::get('about-list', [AboutController::class, 'about_all_data_show'])->name('admin.about.list');
+        Route::post('add-about', [AboutController::class, 'add_about_post'])->name('admin.add.about.post');
+        Route::post('edit-about',[AboutController::class, 'edit_about_details'])->name('edit.about.details');
+        Route::post('update-about',[AboutController::class, 'update_about_details'])->name('update.about.details');
+        Route::post('delete-about',[AboutController::class, 'delete_about'])->name('delete.about');
         
-        Route::get('company-info', [CompanyProfileController::class, 'show_data'])->name('company.info.data');
+
+        //================================Portfolio Route=============================
+        Route::get('portfolio-index', [PortfolioController::class, 'portfolio_index'])->name('admin.portfolio.index');
+        Route::get('portfolio-list', [PortfolioController::class, 'portfolio_all_data_show'])->name('admin.portfolio.list');
+        Route::post('add-portfolio', [PortfolioController::class, 'add_portfolio_post'])->name('admin.add.portfolio.post');
+        // Route::post('edit-portfolio',[PortfolioController::class, 'edit_portfolio_details'])->name('edit.portfolio.details');
+        // Route::post('update-portfolio',[PortfolioController::class, 'update_portfolio_details'])->name('update.portfolio.details');
+        Route::post('delete-portfolio',[PortfolioController::class, 'delete_portfolio'])->name('delete.portfolio');
+
+
+         //================================Home Page Route=============================
+         Route::get('home-index', [HomeController::class, 'home_index'])->name('admin.home.index');
+         Route::get('home-list', [HomeController::class, 'home_all_data_show'])->name('admin.home.list');
+         Route::post('add-home', [HomeController::class, 'add_home_post'])->name('admin.add.home.post');
+         Route::post('edit-home',[HomeController::class, 'edit_home_details'])->name('edit.home.details');
+         Route::post('update-home',[HomeController::class, 'update_home_details'])->name('update.home.details');
+         Route::post('delete-home',[HomeController::class, 'delete_home'])->name('delete.home');
+
+
+        //==============================Profile=============================
+        //profile
+        Route::get('admin/setting', [ProfileController::class, 'admin_settings'])->name('admin.setting');
+        Route::get('admin/overview', [ProfileController::class, 'admin_overview'])->name('admin.overview');
+
+        Route::post('admin/setting/change_info', [ProfileController::class, 'change_info'])->name('admin.change.info');
+        Route::post('admin/setting/change_email', [ProfileController::class, 'change_email'])->name('admin.change.email');
+        Route::post('admin/setting/change_password', [ProfileController::class, 'change_password'])->name('admin.change.password');
+    
     });
 });

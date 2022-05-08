@@ -20,7 +20,7 @@ class UserType
         if($request->session()->get('admin_type') == 1){
             return $next($request);
         }else{
-            $request->session()->flash('message', 'Invalid Request');
+            $request->session()->flash('msg', 'Invalid Request');
             return redirect()->route('login')->with([
                 'error' => true,
                 'message' => 'Please login first!'

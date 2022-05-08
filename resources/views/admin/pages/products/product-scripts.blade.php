@@ -35,7 +35,7 @@
                     // {data:'id', name:'id'},
                     // {data:'DT_RowIndex', name:'DT_RowIndex'},
                     {data:'product_name', name:'product_name'},
-                    {data:'product_image', name:'product_image'},
+                    // {data:'product_image', name:'product_image'},
                     {data:'activeStatus', name:'activeStatus', orderable:false, searchable:false},
                     {data:'actions', name:'actions', orderable:false, searchable:false},
                 ]
@@ -105,10 +105,10 @@
               //alert(product_id);
 
               $.post('<?= route('edit.product.details') ?>',{product_id:product_id, _token:'{{csrf_token()}}'}, function(data){
-
+               // alert(data.details.product_image);
                   $('.editProduct').find('input[name="p_id"]').val(data.details.id);
                   $('.editProduct').find('input[name="product_name"]').val(data.details.product_name);
-                  $('.editProduct').find('input[name="product_image"]').val(data.details.product_image);
+                //   $('.editProduct').find('input[name="product_image"]').val(data.details.product_image);
                 
                   $('.editProduct').modal('show');
               },'json');
@@ -145,9 +145,9 @@
 
             //=============================DELETE service record===========================
             $(document).on('click','#deleteProductBtn', function(){
-                var product_id = $(this).data('p_id');
+                var product_id = $(this).data('id');
 
-                // alert(product_id)
+                //alert(product_id)
 
                 var url = '<?= route("delete.product") ?>';
 
@@ -166,7 +166,7 @@
                     if(result.value){
                         $.post(url,{product_id:product_id, _token:'{{csrf_token()}}'}, function(data){
                             if(data.code == 1){
-                                $('#service-list-table').DataTable().ajax.reload(null, false);
+                                $('#product-list-table').DataTable().ajax.reload(null, false);
                                 toastr.success(data.msg);
                             }else{
                                 toastr.error(data.msg);

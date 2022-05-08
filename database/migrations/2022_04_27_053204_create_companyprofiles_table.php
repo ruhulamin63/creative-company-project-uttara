@@ -19,10 +19,9 @@ class CreateCompanyprofilesTable extends Migration
             $table->string('company_name', 255)->nullable();
             $table->string('reg_no', 255)->nullable();
             $table->string('trade_licence_no', 255)->nullable();
-            $table->text('image_logo',150)->nullable();
+            $table->text('company_logo',150)->nullable();
             $table->string('tagline', 255)->nullable();
             $table->string('website',150)->nullable();
-            $table->string('facebook_link',255)->nullable();
             $table->string('skype_id',255)->nullable();
             $table->string('bank_account_name',255)->nullable();
             $table->string('bank_name',255)->nullable();

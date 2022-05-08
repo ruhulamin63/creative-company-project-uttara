@@ -1,4 +1,4 @@
-@extends('layout.content.main-content')
+@extends('layout.content.customer-content')
 <?php 
 	$title= "About";
 ?>
@@ -8,11 +8,11 @@
       <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="container">
-        <div class="row">
-            <div class="col-lg-12 pt-5 d-flex align-items-center">
-                    <h1>About Us</h1>
+            <div class="row">
+                <div class="col-lg-12 pt-5 d-flex align-items-center">
+                        <h1>About Us</h1>
+                </div>
             </div>
-        </div>
         </div>
         <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
         <defs>
@@ -32,43 +32,46 @@
     <!-- End Hero -->
 
     <main id="main">
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="Creative">
-                            <p class="text-start">Creative soft Technology is a Leading Global IT provider. Creative soft Technology was started to provide software solutions, website development, Digital Marketing and consulting services to Small, Medium, Large and Blue Chip Companies. We also provide IT solutions and services to National Government, Local Government, and Private Agencies. Owned and managed by experienced players in the IT industry, Creative soft Technology is a 100% black owned Software Development Company. Our best-of-breed Approach allows us to maximize productivity and keep risks to an absolute minimum.</p>
+        @foreach ($about as $item)
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="Creative">
+                                <p class="text-start">{{ $item->desc }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- OUR VISION AND MISSION -->
-        <section id="about" class="about">
-            <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                <div class="icon-box">
-                    <div class="icon">1</div>
-                    <h4 class="title"><a href="">OUR VISION AND MISSION</a></h4>
-                    <p class="description">Our vision and mission is an amalgamation of our corporate philosophy and our motto of providing next generation IT services. To envision, design and construct the most magnificent software development and web development services; to contribute tangibly in overall success of our customers and provide highest Return on Investment to our customers.</p>
+            <!-- OUR VISION AND MISSION -->
+            <section id="about" class="about">
+                <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+                    <div class="icon-box">
+                        <div class="icon">1</div>
+                        <h4 class="title"><a href="">OUR VISION AND MISSION</a></h4>
+                        <p class="description">{{ $item->mission_desc }}</p>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon">2</div>
+                        <h4 class="title"><a href="">OUR DIFFERENCE</a></h4>
+                        <p class="description">{{ $item->difference_desc }} </p>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="ourmission-img mt-4">
+                        <img src="{{asset('assets/img/home-mockup.png')}}" class="img-fluid" alt="...">
+                    </div>
+                    </div>
                 </div>
-                <div class="icon-box">
-                    <div class="icon">2</div>
-                    <h4 class="title"><a href="">OUR DIFFERENCE</a></h4>
-                    <p class="description">Lots of firms offer online marketing assistance. We view clients as partners, and our success is only measured by the success of our partners. So we put it all on the table in order to exceed expectations. We know each new project is a gamble, but there is no one we’d rather bet on than ourselves. </p>
                 </div>
-                </div>
-                <div class="col-lg-6">
-                <div class="ourmission-img mt-4">
-                    <img src="{{asset('assets/img/home-mockup.png')}}" class="img-fluid" alt="...">
-                </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <!-- OUR VISION AND MISSION End-->
+            </section>
+            <!-- OUR VISION AND MISSION End-->
+        @endforeach
+    
 
         <!-- Client & Partner -->
         <section id="clicnt-partner">

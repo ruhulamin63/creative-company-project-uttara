@@ -1,4 +1,4 @@
-@extends('layout.content.main-content')
+@extends('layout.content.customer-content')
 <?php 
 	$title= "Career";
 ?>

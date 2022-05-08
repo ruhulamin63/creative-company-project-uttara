@@ -1,4 +1,4 @@
-@extends('layout.content.main-content')
+@extends('layout.content.customer-content')
 <?php 
 	$title= "Product";
 ?>
@@ -52,7 +52,7 @@
                                     @endif
                                 </div>
                                 <h3 class="post-title">{{$item->product_name}}</h3>
-                                <button class="btn mt-5">Request For Demo</button>
+                                <button class="btn mt-5">Request For Product</button>
                             </div>
                         </div>
                     @endforeach

@@ -18,7 +18,9 @@ License: For each use you must have a valid license purchased only from above li
 		<meta name="keywords" content="Craft, bootstrap, Angular 10, Vue, React, Laravel, admin themes, free admin themes, bootstrap admin, bootstrap dashboard" />
 		<link rel="canonical" href="Https://preview.keenthemes.com/start" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		{{-- <link rel="shortcut icon" href="{{asset('media/fabric icon/car-service.png')}}" /> --}}
+
+		<link rel="shortcut icon" href="{{asset('media/fabric icon/fabric-logo.png')}}" />
+		
 		<!--begin::Fonts-->
         <link rel="stylesheet" href="{{asset('css/fonts_googleapis_300_400_500_600_700.css')}}"/>
 		<!--end::Fonts-->
@@ -52,7 +54,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!-- <h1 class="text-dark mb-3" align="right">Create an Account</h1> -->
 
 								<div>
-									<img alt="Logo" src="{{asset('assets/img/CST_LOGO.svg')}}" class="h-80px" />
+									<img alt="Logo" src="{{asset('media/fabric icon/company-logo.png')}}" class="h-100px" />
 									<span><h1 class="text-dark mb-3">Sign In To Sheba Automation Ltd</h1></span>
 								</div>
 								<!--end::Title-->

@@ -1,4 +1,4 @@
-@extends('layout.content.main-content')
+@extends('layout.content.customer-content')
 <?php 
 	$title= "Sheba Automation Ltd";
 ?>
@@ -8,59 +8,39 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 pt-4 d-flex align-items-center">
-            <div class="heoro-heading-tetx">
-              <h1>We Provides Best Technology Solution Worldwide</h1>
-              <h2>Creative soft Technology is a Leading Global IT provider . Creative soft Technology was started to provide software solutions, website development, Digital Marketing and consulting services to Small, Medium, Large and Blue Chip Companies. We also provide IT solutions and services to National Government, Local Government, and Private Agencies.</h2>
-              <div class="text-center text-lg-start">
-                <a href="portfolio.html" class="btn-get-started scrollto">PORTFOLIO</a>
+        @foreach ($home as $item)
+          <div class="row">
+            <div class="col-lg-6 pt-4 d-flex align-items-center">
+              <div class="heoro-heading-tetx">
+                <h1>{{ $item->title }}</h1>
+                <h2>{{ $item->desc }}</h2>
+                <div class="text-center text-lg-start">
+                  <a href="{{ route('index.portfolio') }}" class="btn-get-started scrollto">PORTFOLIO</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="" data-aos-delay="300">
+              <div class="Creative_Design_all">
+                <div class="c_design_img">
+                  {{-- <img src="{{asset('assets/img/1.png')}}" alt="..."> --}}
+                    @if($item->logo)
+                      <?php if (file_exists("../public/".$item->logo)){ ?>
+                        <img src="{{asset($item->logo)}}" alt="...">
+                      <?php } else{ ?>
+                        <img src="{{asset('/media/avatars/blank.png')}}">
+                      <?php } ?>
+                    @else
+                      <img src="{{asset('/media/avatars/blank.png')}}" >
+                    @endif 
+                </div>
+                <div class="c_design_text">
+                  <h3><strong>{{ $item->logo_name }}</strong></h3>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="" data-aos-delay="300">
-            <div class="Creative_Design_all">
-              <div class="c_design_img">
-                <img src="{{asset('assets/img/1.png')}}" alt="...">
-              </div>
-              <div class="c_design_text">
-                <h3><strong>Creative Design</strong></h3>
-              </div>
-            </div>
-            <div class="Creative_Design_all">
-              <div class="c_design_img">
-                <img src="{{asset('assets/img/sd.png')}}" alt="...">
-              </div>
-              <div class="c_design_text">
-                <h3><strong>Softwere Development</strong></h3>
-              </div>
-            </div>
-            <div class="Creative_Design_all">
-              <div class="c_design_img">
-                <img src="{{asset('assets/img/mobile.png')}}" alt="...">
-              </div>
-              <div class="c_design_text">
-                <h3><strong>Mobile Application</strong></h3>
-              </div>
-            </div>
-            <div class="Creative_Design_all">
-              <div class="c_design_img">
-                <img src="{{asset('assets/img/digital-marketing.png')}}" alt="...">
-              </div>
-              <div class="c_design_text">
-                <h3><strong>Digital marketing</strong></h3>
-              </div>
-            </div>
-            <div class="Creative_Design_all">
-              <div class="c_design_img">
-                <img src="{{asset('assets/img/it.jpg')}}" alt="...">
-              </div>
-              <div class="c_design_text">
-                <h3><strong>IT Consultant</strong></h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
+          
       </div>
       <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
         <defs>
@@ -135,14 +115,27 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col-lg-3 col-sm-6">
-              <div class="gallery-item mobile-responsive1">
-                <a href="{{asset('assets/img/gallery/gallery-1.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
-                  <img src="{{asset('assets/img/gallery/gallery-1.jpg')}}" alt="" class="img-fluid">
-                </a>
+            @foreach ($client as $item)
+              <div class="col-lg-3 col-sm-6">
+                <div class="gallery-item mobile-responsive1">
+                  <a href="{{asset($item->client_image)}}" class="galleery-lightbox" data-gallery="gallery-item">
+                    {{-- <img src="{{asset('assets/img/gallery/gallery-1.jpg')}}" alt="" class="img-fluid"> --}}
+
+                    @if($item->client_image)
+                      <?php if (file_exists("../public/".$item->client_image)){ ?>
+                        <img src="{{asset($item->client_image)}}" alt="..." class="img-fluid">
+                      <?php } else{ ?>
+                        <img src="{{asset('/media/avatars/blank.png')}}">
+                      <?php } ?>
+                    @else
+                      <img src="{{asset('/media/avatars/blank.png')}}" >
+                    @endif 
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
+            @endforeach
+           
+            {{-- <div class="col-lg-3 col-sm-6">
               <div class="gallery-item responsive2">
                 <a href="{{asset('assets/img/gallery/gallery-2.jpg')}}" class="galleery-lightbox" data-gallery="gallery-item">
                   <img src="{{asset('assets/img/gallery/gallery-2.jpg')}}" alt="" class="img-fluid">
@@ -190,7 +183,7 @@
                   <img src="{{asset('assets/img/gallery/gallery-8.jpg')}}" alt="" class="img-fluid">
                 </a>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </section><!-- End Gallery Section -->
@@ -203,14 +196,25 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col-lg-3 col-sm-6">
-              <div class="gallery-item mobile-responsive1">
-                <a href="{{asset('assets/img/partner/1.png')}}" class="galleery-lightbox" data-gallery="gallery-item">
-                  <img src="{{asset('assets/img/partner/1.png')}}" alt="" class="img-fluid">
-                </a>
+            @foreach ($partner as $item)
+              <div class="col-lg-3 col-sm-6">
+                <div class="gallery-item mobile-responsive1">
+                  <a href="{{asset($item->partner_image)}}" class="galleery-lightbox" data-gallery="gallery-item">
+                    @if($item->partner_image)
+                        <?php if (file_exists("../public/".$item->partner_image)){ ?>
+                          <img src="{{asset($item->partner_image)}}" alt="..." class="img-fluid">
+                        <?php } else{ ?>
+                          <img src="{{asset('/media/avatars/blank.png')}}">
+                        <?php } ?>
+                      @else
+                        <img src="{{asset('/media/avatars/blank.png')}}" >
+                      @endif 
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
+            @endforeach
+            
+            {{-- <div class="col-lg-3 col-sm-6">
               <div class="gallery-item responsive2">
                 <a href="{{asset('assets/img/partner/2.png')}}" class="galleery-lightbox" data-gallery="gallery-item">
                   <img src="{{asset('assets/img/partner/2.png')}}" alt="" class="img-fluid">
@@ -244,7 +248,7 @@
                   <img src="{{asset('assets/img/partner/6.png')}}" alt="" class="img-fluid">
                 </a>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </section><!-- End Gallery Section -->
